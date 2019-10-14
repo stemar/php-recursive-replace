@@ -56,7 +56,7 @@ cd php-recursive-replace
 
 Copy the `replace()` function from `replace_recursive.php` anywhere in your code.
 
-## Examples:
+## Examples
 
 Try:
 
