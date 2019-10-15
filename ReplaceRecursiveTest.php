@@ -3,7 +3,7 @@ require __DIR__.'/replace_recursive.php';
 use PHPUnit\Framework\TestCase;
 
 /**
- * Usage: phpunit ReplaceRecursiveTest
+ * Usage: ./phpunit ReplaceRecursiveTest
  */
 class ReplaceRecursiveTest extends TestCase {
 
