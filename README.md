@@ -113,3 +113,28 @@ Result:
 ```
 App config path: /home/vagrant/php_example_app/1.3.0/app/config
 ```
+
+Try with a symbol placeholder:
+
+```json
+$json = <<<JSON
+{
+    "home": "/home/vagrant",
+    "app": "php_example_app",
+    "app_version": "1.3.0",
+    "app_path": ":home/:app",
+    "app_version_path": ":app_path/:app_version",
+    "webroot_path": ":app_version_path/www",
+    "config_path": ":app_version_path/app/config"
+}
+JSON;
+$array = json_decode($json, TRUE);
+$replaced_array = replace($array, $array, "/:(\w+)/");
+echo replace("App config path: :config_path", $replaced_array);
+```
+
+Result:
+
+```
+App config path: /home/vagrant/php_example_app/1.3.0/app/config
+```

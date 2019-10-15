@@ -11,8 +11,8 @@
 function replace($subject, $replacement, $pattern="/\{\{(\w+)\}\}/") {
     if (is_array($subject)) {
         $func = __FUNCTION__;
-        return array_map(function ($subject) use ($func, $replacement) {
-            return call_user_func($func, $subject, $replacement);
+        return array_map(function ($subject) use ($func, $replacement, $pattern) {
+            return call_user_func($func, $subject, $replacement, $pattern);
         }, $subject);
     }
     while (preg_match($pattern, $subject)) {
