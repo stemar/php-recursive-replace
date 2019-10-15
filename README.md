@@ -41,13 +41,15 @@ Instead of:
 
 [PHPUnit](https://phpunit.de/getting-started/phpunit-8.html)
 
-### One local file, quick!
+### One local file, after you git clone
 
 ```bash
 wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
 ```
 
-### With global Composer
+(See installation below.)
+
+### Or with global Composer
 
 - Composer: [Download](https://getcomposer.org/download) & [install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 - PHPUnit: `composer global require phpunit/phpunit`
@@ -57,6 +59,8 @@ wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
 ```bash
 git clone https://github.com/stemar/php-recursive-replace.git
 cd php-recursive-replace
+
+wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
 ./phpunit ReplaceRecursiveTest.php
 ```
 
