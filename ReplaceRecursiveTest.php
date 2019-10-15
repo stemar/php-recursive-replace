@@ -77,7 +77,7 @@ JSON;
             "app_path" => "/home/vagrant/php_example_app",
             "app_version_path" => "/home/vagrant/php_example_app/1.3.0"
         ];
-        $replaced_array = replace($array, $array, "/:(\w+)/");
+        $replaced_array = replace($array, $array, '/:(\w+)/');
         $this->assertEquals($expected, $replaced_array);
 
         $actual = replace("App version path: {{app_version_path}}", $replaced_array);

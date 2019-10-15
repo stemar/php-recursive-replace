@@ -8,7 +8,7 @@
  * @param regex $pattern
  * @return mixed
  */
-function replace($subject, $replacement, $pattern="/\{\{(\w+)\}\}/") {
+function replace($subject, $replacement, $pattern='/\{\{(\w+)\}\}/') {
     if (is_array($subject)) {
         $func = __FUNCTION__;
         return array_map(function ($subject) use ($func, $replacement, $pattern) {
