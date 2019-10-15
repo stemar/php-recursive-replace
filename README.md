@@ -73,7 +73,9 @@ $array = [
     "app" => "php_example_app",
     "app_version" => "1.3.0",
     "app_path" => "{{home}}/{{app}}",
-    "app_version_path" => "{{app_path}}/{{app_version}}"
+    "app_version_path" => "{{app_path}}/{{app_version}}",
+    "webroot_path" => "{{app_version_path}}/www",
+    "config_path" => "{{app_version_path}}/app/config"
 ];
 $replaced_array = replace($array, $array);
 echo replace("App version path: {{app_version_path}}", $replaced_array);
