@@ -4,6 +4,8 @@ Recursively replace array with placeholders in PHP.
 
 ## Goal
 
+We need a recursive replacement of values within the same array.
+
 Instead of repeating values throughout a JSON file or a PHP Array,
 use placeholders to fill in repeatable portions of values.
 
