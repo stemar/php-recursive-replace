@@ -101,11 +101,11 @@ $json = <<<JSON
 JSON;
 $array = json_decode($json, TRUE);
 $replaced_array = replace($array, $array);
-echo replace("App version path: {{config_path}}", $replaced_array);
+echo replace("App config path: {{config_path}}", $replaced_array);
 ```
 
 Result:
 
 ```
-App version path: /home/vagrant/php_example_app/1.3.0/app/config
+App config path: /home/vagrant/php_example_app/1.3.0/app/config
 ```
