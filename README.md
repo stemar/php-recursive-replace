@@ -4,13 +4,14 @@ Recursively replace array with placeholders in PHP.
 
 ## Goal
 
-Instead of repeating values throughout a JSON file,
+Instead of repeating values throughout a JSON file or a PHP Array,
 use placeholders to fill in repeatable portions of values.
 
 Example:
 
 ```json
-"paths": {
+{
+    "home": "/home/vagrant",
     "app": "php_example_app",
     "app_version": "1.3.0",
     "app_path": "{{home}}/{{app}}",
@@ -23,7 +24,8 @@ Example:
 Instead of:
 
 ```json
-"paths": {
+{
+    "home": "/home/vagrant",
     "app": "php_example_app",
     "app_version": "1.3.0",
     "app_path": "/home/vagrant/php_example_app",
@@ -65,6 +67,7 @@ Copy the `replace()` function from `replace_recursive.php` anywhere in your code
 Try:
 
 ```php
+<?php
 $array = [
     "home" => "/home/vagrant",
     "app" => "php_example_app",
@@ -78,6 +81,31 @@ echo replace("App version path: {{app_version_path}}", $replaced_array);
 
 Result:
 
-```php
-"App version path: /home/vagrant/php_example_app/1.3.0"
+```
+App version path: /home/vagrant/php_example_app/1.3.0
+```
+
+Try:
+
+```json
+$json = <<<JSON
+{
+    "home": "/home/vagrant",
+    "app": "php_example_app",
+    "app_version": "1.3.0",
+    "app_path": "{{home}}/{{app}}",
+    "app_version_path": "{{app_path}}/{{app_version}}",
+    "webroot_path": "{{app_version_path}}/www",
+    "config_path": "{{app_version_path}}/app/config"
+}
+JSON;
+$array = json_decode($json, TRUE);
+$replaced_array = replace($array, $array);
+echo replace("App version path: {{config_path}}", $replaced_array);
+```
+
+Result:
+
+```
+App version path: /home/vagrant/php_example_app/1.3.0/app/config
 ```
