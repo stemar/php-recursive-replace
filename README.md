@@ -11,6 +11,8 @@ Example:
 
 ```json
 "paths": {
+    "app": "php_example_app",
+    "app_version": "1.3.0",
     "app_path": "{{home}}/{{app}}",
     "app_version_path": "{{app_path}}/{{app_version}}",
     "webroot_path": "{{app_version_path}}/www",
@@ -25,7 +27,9 @@ Instead of:
     "app": "php_example_app",
     "app_version": "1.3.0",
     "app_path": "/home/vagrant/php_example_app",
-    "app_version_path": "/home/vagrant/php_example_app/1.3.0"
+    "app_version_path": "/home/vagrant/php_example_app/1.3.0",
+    "webroot_path": "/home/vagrant/php_example_app/1.3.0/www",
+    "config_path": "/home/vagrant/php_example_app/1.3.0/app/config"
 }
 ```
 
