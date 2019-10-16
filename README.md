@@ -44,7 +44,7 @@ Instead of:
 ### One local file, after you git clone
 
 ```bash
-wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
+wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
 ```
 
 (See installation below.)
@@ -60,8 +60,8 @@ wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
 git clone https://github.com/stemar/php-recursive-replace.git
 cd php-recursive-replace
 
-wget -O phpunit https://phar.phpunit.de/phpunit-8.phar && chmod +x phpunit
-./phpunit ReplaceRecursiveTest.php
+wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
+php phpunit ReplaceRecursiveTest.php
 ```
 
 ## Usage

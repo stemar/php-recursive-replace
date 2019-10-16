@@ -2,9 +2,6 @@
 require __DIR__.'/replace_recursive.php';
 use PHPUnit\Framework\TestCase;
 
-/**
- * Usage: ./phpunit ReplaceRecursiveTest
- */
 class ReplaceRecursiveTest extends TestCase {
 
     public function test_replace() {
