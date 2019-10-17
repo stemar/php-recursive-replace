@@ -1,8 +1,7 @@
 <?php
-require __DIR__.'/replace_recursive.php';
-use PHPUnit\Framework\TestCase;
+require_once __DIR__.'/replace_recursive.php';
 
-class ReplaceRecursiveTest extends TestCase {
+class ReplaceRecursiveTest extends PHPUnit\Framework\TestCase {
 
     public function test_replace() {
         $array = [

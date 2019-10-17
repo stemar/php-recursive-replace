@@ -37,31 +37,29 @@ Instead of:
 }
 ```
 
-## Prerequisites
-
-[PHPUnit](https://phpunit.de/getting-started/phpunit-8.html)
-
-### One local file, after you git clone
-
-```bash
-wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
-```
-
-(See installation below.)
-
-### Or with global Composer
-
-- Composer: [Download](https://getcomposer.org/download) & [install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
-- PHPUnit: `composer global require phpunit/phpunit`
-
 ## Installation
 
 ```bash
 git clone https://github.com/stemar/php-recursive-replace.git
 cd php-recursive-replace
+```
 
+## Test
+
+### One local file
+
+```bash
 wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
 php phpunit ReplaceRecursiveTest.php
+```
+
+### With Composer
+
+Composer: [Download](https://getcomposer.org/download) & [install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+```bash
+composer require phpunit/phpunit
+vendor/bin/phpunit ReplaceRecursiveTest.php
 ```
 
 ## Usage
