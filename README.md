@@ -107,13 +107,13 @@ $json = <<<JSON
 JSON;
 $array = json_decode($json, TRUE);
 $replaced_array = replace($array, $array);
-echo replace("App config path: {{config_path}}", $replaced_array);
+echo replace("Config path: {{config_path}}", $replaced_array);
 ```
 
 Result:
 
 ```
-App config path: /home/vagrant/php_example_app/1.3.0/app/config
+Config path: /home/vagrant/php_example_app/1.3.0/app/config
 ```
 
 Try with a symbol placeholder:
@@ -132,11 +132,11 @@ $json = <<<JSON
 JSON;
 $array = json_decode($json, TRUE);
 $replaced_array = replace($array, $array, '/:(\w+)/');
-echo replace("App config path: :config_path", $replaced_array);
+echo replace("Config path: :config_path", $replaced_array);
 ```
 
 Result:
 
 ```
-App config path: /home/vagrant/php_example_app/1.3.0/app/config
+Config path: /home/vagrant/php_example_app/1.3.0/app/config
 ```
