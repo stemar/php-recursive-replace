@@ -131,7 +131,7 @@ $json = <<<JSON
 JSON;
 $array = json_decode($json, TRUE);
 $replaced_array = replace($array, $array, '/:(\w+)/');
-echo replace("Config path: :config_path", $replaced_array);
+echo replace("Config path: :config_path", $replaced_array, '/:(\w+)/');
 ```
 
 Result:
