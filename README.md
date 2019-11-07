@@ -57,7 +57,7 @@ php phpunit ReplaceRecursiveTest.php
 
 ```bash
 curl -sS https://getcomposer.org/installer -o composer | php
-composer require phpunit/phpunit
+php composer require phpunit/phpunit
 vendor/bin/phpunit ReplaceRecursiveTest.php
 ```
 
