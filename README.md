@@ -49,8 +49,8 @@ cd php-recursive-replace
 ### One local file
 
 ```bash
-wget -O phpunit https://phar.phpunit.de/phpunit-8.phar
-php phpunit ReplaceRecursiveTest.php
+wget -O phpunit.phar https://phar.phpunit.de/phpunit-8.phar
+php phpunit.phar ReplaceRecursiveTest.php
 ```
 
 ### With Composer
