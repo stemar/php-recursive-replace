@@ -92,7 +92,7 @@ App version path: /home/vagrant/php_example_app/1.3.0
 
 Try:
 
-```json
+```php
 $json = <<<JSON
 {
     "home": "/home/vagrant",
@@ -117,7 +117,7 @@ Config path: /home/vagrant/php_example_app/1.3.0/app/config
 
 Try with a symbol placeholder:
 
-```json
+```php
 $json = <<<JSON
 {
     "home": "/home/vagrant",
