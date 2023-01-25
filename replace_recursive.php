@@ -17,7 +17,7 @@ function replace($subject, $replacement, $pattern='/\{\{(\w+)\}\}/') {
     }
     while (preg_match($pattern, $subject)) {
         $subject = preg_replace_callback($pattern, function ($matches) use ($replacement) {
-            return @$matches[1] ? @$replacement[$matches[1]] : $matches[0];
+            return @$replacement[$matches[1]] ?: $matches[0];
         }, $subject);
     }
     return $subject;
