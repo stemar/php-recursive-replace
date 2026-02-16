@@ -5,7 +5,7 @@
  *
  * @param string $subject String or an array with strings to search and replace
  * @param array $replacement String or an array with strings to replace
- * @param regex $pattern
+ * @param string $pattern
  * @return mixed
  */
 function replace($subject, $replacement, $pattern='/\{\{(\w+)\}\}/') {
