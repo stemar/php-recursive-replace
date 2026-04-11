@@ -26,7 +26,7 @@ class ReplaceRecursiveTest extends PHPUnit\Framework\TestCase {
     }
 
     public function test_replace_json_values() {
-        $json = $this->parse_json("example.json");
+        $json = $this->json_decode_file("example.json");
         $array = [];
         $array += $json['servers']['production'];
         $array += $json['paths'];
@@ -80,22 +80,7 @@ JSON;
         $this->assertEquals("App version path: /home/vagrant/php_example_app/1.3.0", $actual);
     }
 
-    /**
-     * Parse JSON file
-     *
-     * @param string $filename
-     * @return array
-     */
-    private function parse_json($filename) {
-        if (!file_exists($filename)) {
-            trigger_error(sprintf("<!> `%s` is missing!\n", $filename));
-            return;
-        }
-        $array = json_decode(file_get_contents($filename), TRUE);
-        if (json_last_error()) {
-            trigger_error(sprintf("<!> json_decode() error: %s", json_last_error_msg()));
-            return;
-        }
-        return $array;
+    private function json_decode_file($filename) {
+        return is_readable($filename) ? json_decode(file_get_contents($filename), NULL, 512, JSON_THROW_ON_ERROR | JSON_OBJECT_AS_ARRAY | JSON_BIGINT_AS_STRING) : NULL;
     }
 }

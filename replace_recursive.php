@@ -2,23 +2,15 @@
 
 /**
  * Recursively replace placeholders with $replacement values.
- *
- * @param string $subject String or an array with strings to search and replace
- * @param array $replacement String or an array with strings to replace
- * @param string $pattern
- * @return mixed
  */
-function replace($subject, $replacement, $pattern='/\{\{(\w+)\}\}/') {
+function replace(string|array $subject, array $replacement, string $pattern='/\{\{(\w+)\}\}/'): mixed {
     if (is_array($subject)) {
-        $func = __FUNCTION__;
-        return array_map(function ($subject) use ($func, $replacement, $pattern) {
-            return call_user_func($func, $subject, $replacement, $pattern);
-        }, $subject);
+        return array_map(fn($item) => replace($item, $replacement, $pattern), $subject);
     }
-    while (preg_match($pattern, $subject)) {
-        $subject = preg_replace_callback($pattern, function ($matches) use ($replacement) {
-            return @$replacement[$matches[1]] ?: $matches[0];
-        }, $subject);
-    }
+    $max = 10;
+    do {
+        $subject = preg_replace_callback($pattern, fn($matches) => $replacement[$matches[1]] ?? $matches[0], $subject, -1, $count);
+        $max--;
+    } while ($count > 0 && $max > 0);
     return $subject;
 }
